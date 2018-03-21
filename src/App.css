@@ -1,28 +1,62 @@
-.App {
+input {
+  border-radius: 10px;
+  height :1.3em;
+  border: 0px;
+  background-color: white;
+  color:black;
+  width:100%;
+  max-width: 40em;
+  padding-left: .4em;
+}
+
+a {
+  margin: 0em .5em;
+}
+.navbar {
+  background-color: red;
+  height: 3em;
+  width: 100%;
+  position: fixed;
+  padding: 0;
+  display: inline-block;
+}
+
+
+.title {
+  float: left;
+  background-color: pink;
+  height:100%;
+
+}
+.title h1 {
+  margin: 0;
+  padding: .2em .5em;
+}
+
+.searchBar {
+  margin: .85em;
+  width: 10em;
+  float: right;
+}
+
+
+.navbarLinks {
+  float: left;
+  padding:.9em 1em;
+}
+
+.navbarLinks a:hover {
+  color: lightgrey;
+}
+
+.navbarSpacing {
+height: 70px;
+
+}
+
+.movieCarousel {
+  width: 100%;
+  background-color: red;
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  padding: 4em 0em;
 }
