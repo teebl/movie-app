@@ -1,16 +1,16 @@
 input {
   border-radius: 10px;
-  height :1.3em;
+  height: 1.3em;
   border: 0px;
   background-color: white;
-  color:black;
-  width:100%;
+  color: black;
+  width: 100%;
   max-width: 40em;
-  padding-left: .4em;
+  padding-left: 0.4em;
 }
 
 a {
-  margin: 0em .5em;
+  margin: 0em 0.5em;
 }
 .navbar {
   background-color: red;
@@ -21,28 +21,42 @@ a {
   display: inline-block;
 }
 
-
 .title {
   float: left;
   background-color: pink;
-  height:100%;
-
+  height: 100%;
 }
-.title h1 {
+h1 {
   margin: 0;
-  padding: .2em .5em;
+  padding: 0.2em 0.5em;
+}
+
+.navbarButtons {
+  float: right;
+  height: 100%;
+  padding: 0;
+  background-color: blue;
+}
+
+.navbarButtons h1 {
+  padding: 0.2em 0.5em;
+  background-color: pink;
+}
+
+.navbarButtons a {
+  margin: 0;
+  padding: 0;
 }
 
 .searchBar {
-  margin: .85em;
+  margin: 0.85em;
   width: 10em;
   float: right;
 }
 
-
 .navbarLinks {
   float: left;
-  padding:.9em 1em;
+  padding: 0.9em 1em;
 }
 
 .navbarLinks a:hover {
@@ -50,13 +64,39 @@ a {
 }
 
 .navbarSpacing {
-height: 70px;
-
+  height: 70px;
 }
 
 .movieCarousel {
-  width: 100%;
+  height: 300px;
   background-color: red;
   text-align: center;
-  padding: 4em 0em;
+  display: flex;
+  flex: 1 1 500px;
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+  overflow: hidden;
+  align-items: flex-center;
+}
+
+.movieCard {
+  flex: 0 0 150px;
+  height: 278px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.thumbnail {
+  max-width: 150px;
+}
+
+img {
+
+}
+
+ul {
+  display: flex;
 }
