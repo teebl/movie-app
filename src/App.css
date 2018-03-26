@@ -12,6 +12,9 @@ input {
 a {
   margin: 0em 0.5em;
 }
+
+/*Navbar CSS
+====================================================*/
 .navbar {
   background-color: red;
   height: 3em;
@@ -35,15 +38,15 @@ h1 {
   float: right;
   height: 100%;
   padding: 0;
-  background-color: blue;
+  background-color: red;
 }
 
 .navbarButtons h1 {
-  padding: 0.2em 0.5em;
-  background-color: pink;
+
 }
 
 .navbarButtons a {
+  max-height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -64,9 +67,81 @@ h1 {
 }
 
 .navbarSpacing {
-  height: 70px;
+  height: 50px;
 }
 
+
+/*Home CSS
+=========================================*/
+.home {
+  display: none;
+}
+
+/*Movie Page CSS
+========================================*/
+
+.moviePage{
+  position: fixed;
+  padding: 1em 3em;
+  background-color: black;
+  display: flex;
+  flex-flow:row wrap;
+  justify-content: center;
+  align-items: stretch;
+  height: 90%;
+
+}
+
+.moviePageContent{
+  background-color: orange;
+  padding: 1em;
+  flex-grow: 2;
+  max-width: 50%;
+}
+
+.moviePageContent h1{
+  font-size: 4em;
+  padding-bottom: 0px;
+}
+
+.moviePageContent h3{
+  font-style: none;
+  font-style: italic;
+}
+
+.moviePageContent h4{
+padding-top: 0;
+}
+
+ .moviePageContent p{ 
+  font-size: 1em;
+  font-style: italic;
+  background-color: grey;
+  border-radius: 1em;
+  padding: .5em;
+ }
+
+.movieThumbnail{
+  background-color: pink;
+  align-items: center;
+  flex-shrink: 1;
+}
+
+.movieThumbnail img {
+  max-height: 500px;
+  width: auto;
+}
+
+.genreTag {
+  font-size: .7em;
+  background-color: lightgreen;
+  border-radius: 1em;
+  padding: .3em;
+  margin: .2em;
+}
+
+/*Stream CSS
+================================================*/
 .movieCarousel {
   height: 300px;
   background-color: red;
@@ -94,7 +169,6 @@ h1 {
 }
 
 img {
-
 }
 
 ul {

@@ -10,22 +10,7 @@ export default class Stream extends Component {
 		this.state = {
 			apiKey: "1a60a9483b15c60fdebc9600bc1e67af",
 			category: "",
-			movies: [
-        {
-          title: "Shawshank",
-          thumbnail: sampleThumbnail,
-        },
-        {
-          title: "Dark Knight",
-          thumbnail: sampleThumbnail,
-
-        },
-        {
-          title: "Back to the Future",
-          thumbnail: sampleThumbnail,
-
-        }
-      ]
+			movies: [],
     };
 
 }
@@ -36,7 +21,6 @@ componentDidMount() {
 			this.state.apiKey +
 			this.props.api
 	).then(data => data.json()).then(data => this.setState({ movies: [...data.results]}));
-	console.dir(this.state.movies);
 }
 
 render() {
