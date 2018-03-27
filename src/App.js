@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, NavLink, HashRouter } from "react-router-dom";
+import { Route, Link, BrowserRouter } from "react-router-dom";
+import HireMe from "./HireMe";
 import MoviePage from "./MoviePage.js";
 import MovieCard from "./MovieCard.js";
+import BrowsePage from "./BrowsePage"
+import Home from "./Home.js";
 import Stream from "./Stream.js";
 import Navbar from "./Navbar.js";
 
@@ -21,44 +24,35 @@ class App extends Component {
   }
 
   render() {
-    const newReleaseApi = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
-    const TopRatedApi = "&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=4000";
-
 
     return (
+      <BrowserRouter>
       <div className="App">
+                
+
+
         <header className="header">
+          
           <Navbar />
 
           <div className="navbarSpacing" />
         </header>
-        <HashRouter>
+
         <div className="body">
-        <div className="home">
-        <Stream
-          category="New Releases"
-          api= {newReleaseApi}
-        />
-        <Stream
-          category="Top Rated"
-          api= {TopRatedApi}
-        />
-        </div>
-        
-        <MoviePage />
-
-        <div className="profilePage">
-        This Web Application was made by Trevor Seibel
-        </div>
 
 
-        <div className="hireMePage">
-        check out my portfolio <a href="https://teebl.github.io">here</a>
-        </div>
+        <Route exact path="/" component={Home} />
+        <Route path="/MoviePage" component={MoviePage} />
+        <Route path="/HireMe" component={HireMe} />
+        <Route path="/NewReleases" component={BrowsePage} />
+        <Route path="/TopRated" component={Home} />
+        <Route path="/ComingSoon" component={Home} />
+
 
         </div>
-      </HashRouter>
+      
       </div>
+      </BrowserRouter>
     );
   }
 }

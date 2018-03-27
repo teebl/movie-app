@@ -1,3 +1,13 @@
+html {
+  overflow-y: scroll;
+}
+
+.navLink {
+  text-decoration: none;
+  color:black;
+  margin: 0em, 1em;
+}
+
 input {
   border-radius: 10px;
   height: 1.3em;
@@ -7,10 +17,6 @@ input {
   width: 100%;
   max-width: 40em;
   padding-left: 0.4em;
-}
-
-a {
-  margin: 0em 0.5em;
 }
 
 /*Navbar CSS
@@ -74,7 +80,6 @@ h1 {
 /*Home CSS
 =========================================*/
 .home {
-  display: none;
 }
 
 /*Movie Page CSS
@@ -140,6 +145,52 @@ padding-top: 0;
   margin: .2em;
 }
 
+/*HireMe page CSS
+=====================================*/
+
+.hireMe {
+  margin: 3em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% auto;
+  height: 400px;
+  width: auto;
+  display:flex;
+  justify-content: space-around;
+  align-items: center; 
+
+}
+
+.hireMe img{
+  margin: 4em; 
+  height: 200px;
+  border-radius: 100px;
+    -webkit-box-shadow: 2px 4px 42px -12px rgba(0,0,0,0.7);
+  -moz-box-shadow: 2px 4px 42px -12px rgba(0,0,0,0.7);
+  box-shadow: 2px 4px 42px -12px rgba(0,0,0,0.7);
+  border-radius: 100px 100px 100px 100px;
+  -moz-border-radius: 100px 100px 100px 100px;
+  -webkit-border-radius: 100px 100px 100px 100px;
+  border: 0px solid #000000;
+
+ }
+
+.about {
+  margin: 3em;
+  background-color: red;
+  padding: 1em;
+  flex-grow: 2;
+  -webkit-box-shadow: 2px 4px 42px -12px rgba(0,0,0,0.7);
+  -moz-box-shadow: 2px 4px 42px -12px rgba(0,0,0,0.7);
+  box-shadow: 2px 4px 42px -12px rgba(0,0,0,0.7);
+  border-radius: 11px 11px 11px 11px;
+  -moz-border-radius: 11px 11px 11px 11px;
+  -webkit-border-radius: 11px 11px 11px 11px;
+  border: 0px solid #000000;
+  height: 200px;
+
+}
+
 /*Stream CSS
 ================================================*/
 .movieCarousel {
@@ -156,7 +207,7 @@ padding-top: 0;
 }
 
 .movieCard {
-  flex: 0 0 150px;
+  flex: 1 1 150px;
   height: 278px;
   border-radius: 5px;
   display: flex;
@@ -173,4 +224,34 @@ img {
 
 ul {
   display: flex;
+}
+
+/*BrowsePage CSS*
+============================================*/
+
+.BrowsePage {
+  background-color: red;
+  text-align: center;
+  display: flex;
+  flex: 1 1 500px;
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+  align-items: flex-center;
+}
+
+.movieList {
+  flex: 1 1 500px;
+  background-color: orange;
+  flex-wrap: wrap;
+  height: auto;
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.movieList ul {
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
 }
