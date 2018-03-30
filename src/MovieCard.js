@@ -7,8 +7,10 @@ export default class MovieCard extends Component {
 		return (
 			
 			<li className="movieCard" key={this.props.movie.title}>
-			<Link to="/MoviePage">
-			<img className="thumbnail" src={"https://image.tmdb.org/t/p/w300/" + this.props.movie.poster_path} />
+			<Link to={"/movie-app/movie/" + this.props.movie.id}>
+			<div className="movieCardGradient"></div>
+			<p className="movieCardTitle"> {this.props.movie.title}</p>
+			<img className="thumbnail" src={"https://image.tmdb.org/t/p/w300/" + this.props.movie.backdrop_path} />
 			</Link>
 			</li>
 		)

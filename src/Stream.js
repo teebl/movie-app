@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import sampleThumbnail from "./sampleThumbnail.jpg";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import MovieCard from "./MovieCard.js";
+import { CSSTransitionGroup } from 'react-transition-group';
+
 
 
 export default class Stream extends Component {
@@ -18,19 +20,23 @@ export default class Stream extends Component {
 
 componentDidMount() {
 	fetch(this.props.apiUrl).then(data => data.json()).then(data => this.setState({ movies: [...data.results]}));
+
 }
 
 render() {
 	return (
         
         <div className="stream">
-          <div className="category">
+          <div className="streamCategory">
             <h2>{this.props.category}</h2>
           </div>
           <div className="movieCarousel">
             <ul>
               {this.state.movies.map(item => {
-                return <MovieCard movie={item} />;
+                return (
+                  <MovieCard movie={item} />
+                  );
+
               })}
             </ul>
           </div>

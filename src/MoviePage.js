@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import imdb from "./fa-imdb.svg";
 
 export default class MoviePage extends Component {
 	constructor(props) {
@@ -8,48 +9,18 @@ export default class MoviePage extends Component {
 				adult: false,
 				backdrop_path: "/askg3SMvhqEl4OL52YuvdtY40Yb.jpg",
 				belongs_to_collection: null,
-				budget: 175000000,
-				genres: [
-					{
-						id: 12,
-						name: "Adventure"
-					},
-					{
-						id: 35,
-						name: "Comedy"
-					},
-					{
-						id: 10751,
-						name: "Family"
-					},
-					{
-						id: 16,
-						name: "Animation"
-					}
-				],
+				budget: null,
+				genres: [],
 				homepage: null,
-				id: 354912,
+				id: "" ,
 				imdb_id: "tt2380307",
 				original_language: "en",
-				original_title: "Coco",
-				overview:
-					"Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.",
-				popularity: 241.479232,
-				poster_path: "/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
-				production_companies: [
-					{
-						id: 3,
-						logo_path: "/1TjvGVDMYsj6JBxOAkUHpPEwLf7.png",
-						name: "Pixar",
-						origin_country: "US"
-					}
-				],
-				production_countries: [
-					{
-						iso_3166_1: "US",
-						name: "United States of America"
-					}
-				],
+				original_title: "Movie",
+				overview: "Overview",
+				popularity: 0,
+				poster_path: "",
+				production_companies: [],
+				production_countries: [],
 				release_date: "2017-10-27",
 				revenue: 700920729,
 				runtime: 105,
@@ -64,16 +35,35 @@ export default class MoviePage extends Component {
 					}
 				],
 				status: "Released",
-				tagline: "The celebration of a lifetime",
-				title: "Coco",
+				tagline: "Tagline",
+				title: "Title",
 				video: false,
-				vote_average: 7.8,
-				vote_count: 3402
+				vote_average: 0.0,
+				vote_count: 0.0
 			}
 		};
 	}
 
+	componentDidMount() {
+		
+		// const movieUri = "https://api.themoviedb.org/3/movie/337167?api_key=1a60a9483b15c60fdebc9600bc1e67af&language=en-US";
+		const movieUri = "https://api.themoviedb.org/3/movie/" + this.props.match.params.id + "?api_key=1a60a9483b15c60fdebc9600bc1e67af&language=en-US"
+		
+		console.log(movieUri);
+		console.dir(this.props.match.params.id);
+
+		fetch(movieUri).then(data => data.json()).then(data => {this.setState({ movie: data}); console.dir(data)});
+
+
+	}
+
 	render() {
+		let movieTagline = "";
+		
+		if (this.state.movie.tagline != "") {
+			movieTagline = '"' + this.state.movie.tagline + '"';
+		}
+
 		return (
 			<div className="moviePage">
 				<div className="movieThumbnail">
@@ -87,7 +77,7 @@ export default class MoviePage extends Component {
 
 				<div className="moviePageContent">
 					<h1>{this.state.movie.title}</h1>
-					<h3>"{this.state.movie.tagline}"</h3>
+					<h3>{movieTagline}</h3>
 					<h4>Release Date: {this.state.movie.release_date}</h4>
 					<p className="moviePageOverview">
 						{this.state.movie.overview}
@@ -97,7 +87,7 @@ export default class MoviePage extends Component {
 						{this.state.movie.genres.map(item => {
 							return <span className="genreTag">{item.name}</span>
 						})}
-					<p> Check out on <a href={ "http://www.imdb.com/title/" + this.state.movie.imdb_id}>imdb</a></p>
+					<a href={ "http://www.imdb.com/title/" + this.state.movie.imdb_id} class="moviePageIconLink"><img src={imdb} class="moviePageIcon" /></a>
 				</div>
 			</div>
 		);
