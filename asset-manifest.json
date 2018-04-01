@@ -1,9 +1,15 @@
 {
-  "main.css": "static/css/main.fecb3a9d.css",
-  "main.css.map": "static/css/main.fecb3a9d.css.map",
-  "main.js": "static/js/main.ddf7a111.js",
-  "main.js.map": "static/js/main.ddf7a111.js.map",
+  "main.css": "static/css/main.a9aa919c.css",
+  "main.css.map": "static/css/main.a9aa919c.css.map",
+  "main.js": "static/js/main.0b2262cf.js",
+  "main.js.map": "static/js/main.0b2262cf.js.map",
+  "static\\media\\HireMePic.jpg": "static/media/HireMePic.4def893f.jpg",
+  "static\\media\\envelope-square.svg": "static/media/envelope-square.5a6ce336.svg",
   "static\\media\\fa-imdb.svg": "static/media/fa-imdb.df884fec.svg",
-  "static\\media\\profile.jpg": "static/media/profile.8009a170.jpg",
-  "static\\media\\sampleThumbnail.jpg": "static/media/sampleThumbnail.5ca56de7.jpg"
+  "static\\media\\github-square.svg": "static/media/github-square.358847e2.svg",
+  "static\\media\\home.svg": "static/media/home.1b343a11.svg",
+  "static\\media\\slick.eot": "static/media/slick.ced611da.eot",
+  "static\\media\\slick.svg": "static/media/slick.f97e3bbf.svg",
+  "static\\media\\slick.ttf": "static/media/slick.d41f55a7.ttf",
+  "static\\media\\slick.woff": "static/media/slick.b7c9e1e4.woff"
 }
