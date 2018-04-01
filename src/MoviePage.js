@@ -87,7 +87,7 @@ export default class MoviePage extends Component {
 						{this.state.movie.genres.map(item => {
 							return <span className="genreTag">{item.name}</span>
 						})}
-					<a href={ "http://www.imdb.com/title/" + this.state.movie.imdb_id} class="moviePageIconLink"><img src={imdb} class="moviePageIcon" /></a>
+					<div><a href={ "http://www.imdb.com/title/" + this.state.movie.imdb_id} class="moviePageIconLink"><img src={imdb} class="moviePageIcon" /></a></div>
 				</div>
 			</div>
 		);
