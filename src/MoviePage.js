@@ -60,7 +60,7 @@ export default class MoviePage extends Component {
 	render() {
 		let movieTagline = "";
 		
-		if (this.state.movie.tagline != "") {
+		if (this.state.movie.tagline !== "") {
 			movieTagline = '"' + this.state.movie.tagline + '"';
 		}
 

@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import Stream from "./Stream.js";
 import SimpleSlider from "./SimpleSlider";
 
 export default class Home extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		const newReleaseApi =
 			"https://api.themoviedb.org/3/discover/movie?api_key=1a60a9483b15c60fdebc9600bc1e67af&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";

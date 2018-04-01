@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import "./App.css";
-import { Route, Link, BrowserRouter } from "react-router-dom";
+import "./styles/App.css";
+import { Route, BrowserRouter } from "react-router-dom";
 import HireMe from "./HireMe";
 import MoviePage from "./MoviePage.js";
-import MovieCard from "./MovieCard.js";
 import BrowsePage from "./BrowsePage";
 import Home from "./Home.js";
-import Stream from "./Stream.js";
 import Navbar from "./Navbar.js";
 import SearchPage from "./SearchPage";
 import { CSSTransitionGroup } from "react-transition-group";
