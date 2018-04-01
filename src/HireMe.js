@@ -15,7 +15,7 @@ export default class HireMe extends Component {
 				</div>
 
 				<div className="moviePageContent">
-					<h1>Trevor Seibel: Man on Wire</h1>
+					<h1>Trevor Seibel: Judgement Day</h1>
 					<h3>"The Right Man for the Job"</h3>
 					<h4>Hiring Date: Today</h4>
 					<p className="moviePageOverview">
