@@ -27,7 +27,7 @@ export default class SearchPage extends Component {
 				<div className="movieList">
 					<ul>
 						{this.state.movies.map(item => {
-							return <MovieCard movie={item} />;
+							return <div className="browsePageCard"><MovieCard movie={item} /></div>;
 						})}
 					</ul>
 				</div>

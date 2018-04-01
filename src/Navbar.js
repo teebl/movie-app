@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import profile from "./profile.jpg";
+import settings from "./icons/bars.svg";
 
 export default class Navbar extends Component {
 	constructor(props) {
@@ -46,17 +48,8 @@ export default class Navbar extends Component {
 				</div>
 
 				<div className="navbarButtons">
-					<a>
-						<h1>A</h1>
-					</a>
+						<img src={settings} className="navbarIcon" />
 				</div>
-
-				<div className="navbarButtons">
-					<a>
-						<h1>B</h1>
-					</a>
-				</div>
-
 				<div className="searchBar">
 					<form onSubmit={this.handleSubmit}>
 						<input

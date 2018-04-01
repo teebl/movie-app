@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import imdb from "./fa-imdb.svg";
+import imdb from "./icons/fa-imdb.svg";
 
 export default class MoviePage extends Component {
 	constructor(props) {

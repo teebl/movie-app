@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import sampleThumbnail from "./sampleThumbnail.jpg";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import MovieCard from "./MovieCard.js";
 import { CSSTransitionGroup } from 'react-transition-group';
