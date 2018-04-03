@@ -1,27 +1,34 @@
 import React, { Component } from "react";
 import "./styles/App.css";
 import { Route, BrowserRouter } from "react-router-dom";
-import HireMe from "./HireMe";
-import MoviePage from "./MoviePage.js";
-import BrowsePage from "./BrowsePage";
-import Home from "./Home.js";
-import Navbar from "./Navbar.js";
-import SearchPage from "./SearchPage";
+import HireMe from "./containers/HireMe";
+import MoviePage from "./containers/MoviePage.js";
+import BrowsePage from "./containers/BrowsePage.js";
+import Home from "./containers/Home.js";
+import Navbar from "./components/Navbar.js";
+import SearchPage from "./containers/SearchPage";
 import { CSSTransitionGroup } from "react-transition-group";
+import API_KEY from "./config.js";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      apiKey: "1a60a9483b15c60fdebc9600bc1e67af",
+      apiKey: API_KEY,
       defaultApiPaths: {
         newReleasesUri:
-          "https://api.themoviedb.org/3/discover/movie?api_key=1a60a9483b15c60fdebc9600bc1e67af&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1",
+          "https://api.themoviedb.org/3/discover/movie?api_key=" +
+          API_KEY +
+          "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1",
         topRatedUri:
-          "https://api.themoviedb.org/3/discover/movie?api_key=1a60a9483b15c60fdebc9600bc1e67af&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=4000",
+          "https://api.themoviedb.org/3/discover/movie?api_key=" +
+          API_KEY +
+          "&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=4000",
         comingSoonUri:
-          "https://api.themoviedb.org/3/movie/upcoming?api_key=1a60a9483b15c60fdebc9600bc1e67af&language=en-US&page=1"
+          "https://api.themoviedb.org/3/movie/upcoming?api_key=" +
+          API_KEY +
+          "&language=en-US&page=1"
       },
       movies: []
     };
@@ -40,7 +47,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <CSSTransitionGroup
         transitionName="example"
@@ -58,12 +64,26 @@ class App extends Component {
             </header>
 
             <div className="body">
-              <Route exact path="/movie-app/" component={Home} />
+              <Route
+                exact
+                path="/movie-app/"
+                render={routeProps => (
+                  <Home
+                    {...routeProps}
+                    defaultApiPaths={this.state.defaultApiPaths}
+                  />
+                )}
+              />
               <Route exact path="/movie-app/movie" component={MoviePage} />
               <Route path="/movie-app/movie/:id" component={MoviePage} />
               <Route
                 path="/movie-app/search/:searchTerm"
-                component={SearchPage}
+                render={routeProps => (
+                  <SearchPage
+                    {...routeProps}
+                    apiKey={this.state.apiKey}
+                  />
+                )}
               />
               <Route path="/movie-app/HireMe" component={HireMe} />
               <Route

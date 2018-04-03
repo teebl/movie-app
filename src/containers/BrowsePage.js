@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MovieCard from "./MovieCard.js";
+import MovieCard from "../components/MovieCard.js";
 
 
 export default class BrowsePage extends Component {
@@ -7,7 +7,6 @@ export default class BrowsePage extends Component {
 		super(props);
 
 		this.state = {
-			apiKey: "1a60a9483b15c60fdebc9600bc1e67af",
 			category: "",
 			movies: [],
     };

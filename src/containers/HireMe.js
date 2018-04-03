@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import HireMePic from './HireMePic.jpg';
-import home from "./icons/home.svg";
-import github from "./icons/github-square.svg";
-import mail from "./icons/envelope-square.svg";
+import HireMePic from '../resources/HireMePic.jpg';
+import home from "../resources/icons/home.svg";
+import github from "../resources/icons/github-square.svg";
+import mail from "../resources/icons/envelope-square.svg";
 
 export default class HireMe extends Component {
 	render() {

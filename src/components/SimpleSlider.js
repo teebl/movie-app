@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom';
 import Slider from 'react-slick'
-import MovieCard from './MovieCard'
-import "../node_modules/slick-carousel/slick/slick.css"; 
-import "../node_modules/slick-carousel/slick/slick-theme.css";
+import MovieCard from '../components/MovieCard'
+import "../../node_modules/slick-carousel/slick/slick.css"; 
+import "../../node_modules/slick-carousel/slick/slick-theme.css";
 
 
 export default class SimpleSlider extends Component {
@@ -10,19 +11,30 @@ export default class SimpleSlider extends Component {
     super(props);
 
     this.state = {
-      apiKey: "1a60a9483b15c60fdebc9600bc1e67af",
+      adaptiveHeight: false,
       category: "",
       movies: [],
     };
 
 }
 
-componentDidMount() {
+componentWillMount() {
+
   fetch(this.props.apiUrl).then(data => data.json()).then(data => this.setState({ movies: [...data.results]}));
+}
+
+ComponentDidMount() {
+  setTimeout(() => {
+    this.setState({
+      adaptiveHeight: true
+    })
+  }, 400)
 
 }
 
   render() {
+    const heightBool = this.state.adaptiveHeight;
+
     const settings = {
       responsive: [{
         breakpoint: 1024,
@@ -37,7 +49,7 @@ componentDidMount() {
       speed: 1000,
       slidesToShow: 6,
       slidesToScroll: 6,
-      adaptiveHeight:true,
+      adaptiveHeight: {heightBool},
       className:'slickSlider',
     };
     return (
