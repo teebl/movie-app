@@ -28,7 +28,7 @@ ComponentDidMount() {
     this.setState({
       adaptiveHeight: true
     })
-  }, 400)
+  }, 1000)
 
 }
 
