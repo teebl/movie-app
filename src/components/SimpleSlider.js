@@ -1,69 +1,71 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
-import Slider from 'react-slick'
-import MovieCard from '../components/MovieCard'
-import "../../node_modules/slick-carousel/slick/slick.css"; 
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import MovieCard from "../components/MovieCard";
+import LoadingTile from "./LoadingTile";
+import { animated, useTrail } from "react-spring";
+import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
 
+const carouselSettings = {
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: false
+      }
+    }
+  ],
+  lazyLoad: "ondemand",
+  dots: false,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 6,
+  slidesToScroll: 6,
+  adaptiveHeight: true,
+  className: "slickSlider"
+};
 
-export default class SimpleSlider extends Component {
-  constructor(props) {
-    super(props);
+const SimpleSlider = props => {
+  const [loadedMovies, setLoadedMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [counter, setCounter] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
 
-    this.state = {
-      adaptiveHeight: false,
-      category: "",
-      movies: [],
-    };
+  useEffect(() => {
+    fetch(props.apiUrl)
+      .then(data => data.json())
+      .then(data => setMovies([...data.results]));
+  }, []);
 
-}
+  const imageLoadedHandler = () => {
+    setImagesLoaded(imagesLoaded + 1);
+  };
 
-componentWillMount() {
+  const renderMovieCarousel = () => (
+    <div className="sliderBox">
+      <h2> {props.category}</h2>
+      <Slider {...carouselSettings}>
+        {movies.map((movie, i) => {
+          return (
+            <animated.div className="sliderCard">
+              <MovieCard
+                key={i}
+                index={i}
+                movie={movie}
+                onImageLoaded={imageLoadedHandler}
+                allLoaded={6 <= imagesLoaded}
+              />
+            </animated.div>
+          );
+        })}
+      </Slider>
+    </div>
+  );
 
-  fetch(this.props.apiUrl).then(data => data.json()).then(data => this.setState({ movies: [...data.results]}));
-}
+  return renderMovieCarousel();
+};
 
-ComponentDidMount() {
-  setTimeout(() => {
-    this.setState({
-      adaptiveHeight: true
-    })
-  }, 1000)
-
-}
-
-  render() {
-    const heightBool = this.state.adaptiveHeight;
-
-    const settings = {
-      responsive: [{
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: false,
-        }}],
-      dots: false,
-      infinite: true,
-      speed: 1000,
-      slidesToShow: 6,
-      slidesToScroll: 6,
-      adaptiveHeight: {heightBool},
-      className:'slickSlider',
-    };
-    return (
-      <div className="sliderBox">
-        <h2> {this.props.category}</h2>
-        <Slider {...settings}>
-              {this.state.movies.map(item => {
-                return (
-                  <div className="sliderCard"><MovieCard movie={item}  /></div>
-                  );
-
-              })}
-        </Slider>
-      </div>
-    );
-  }
-}
+export default SimpleSlider;

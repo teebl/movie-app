@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles/App.css";
 import { Route, BrowserRouter } from "react-router-dom";
 import HireMe from "./containers/HireMe";
@@ -7,10 +7,9 @@ import BrowsePage from "./containers/BrowsePage.js";
 import Home from "./containers/Home.js";
 import Navbar from "./components/Navbar.js";
 import SearchPage from "./containers/SearchPage";
-import { CSSTransitionGroup } from "react-transition-group";
 import API_KEY from "./config.js";
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -36,7 +35,6 @@ class App extends Component {
 
   performSearch(searchTerm, props) {
     if (searchTerm !== "") {
-      console.dir(searchTerm);
       window.history.pushState("", "", "/movie-app/search/" + searchTerm);
       window.location.reload();
     }
@@ -48,78 +46,67 @@ class App extends Component {
 
   render() {
     return (
-      <CSSTransitionGroup
-        transitionName="example"
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
-        <BrowserRouter>
-          <div className="App">
-            <header className="header">
-              <Navbar onSubmit={this.performSearch} />
+      <BrowserRouter>
+        <div className="App">
+          <header className="header">
+            <Navbar onSubmit={this.performSearch} />
 
-              <div className="navbarSpacing" />
-            </header>
+            <div className="navbarSpacing" />
+          </header>
 
-            <div className="body">
-              <Route
-                exact
-                path="/movie-app/"
-                render={routeProps => (
-                  <Home
-                    {...routeProps}
-                    defaultApiPaths={this.state.defaultApiPaths}
-                  />
-                )}
-              />
-              <Route exact path="/movie-app/movie" component={MoviePage} />
-              <Route path="/movie-app/movie/:id" component={MoviePage} />
-              <Route
-                path="/movie-app/search/:searchTerm"
-                render={routeProps => (
-                  <SearchPage
-                    {...routeProps}
-                    apiKey={this.state.apiKey}
-                  />
-                )}
-              />
-              <Route path="/movie-app/HireMe" component={HireMe} />
-              <Route
-                path="/movie-app/NewReleases"
-                render={routeProps => (
-                  <BrowsePage
-                    {...routeProps}
-                    category={"New Releases"}
-                    uri={this.state.defaultApiPaths.newReleasesUri}
-                  />
-                )}
-              />
-              <Route
-                path="/movie-app/TopRated"
-                render={routeProps => (
-                  <BrowsePage
-                    {...routeProps}
-                    category={"Top Rated"}
-                    uri={this.state.defaultApiPaths.topRatedUri}
-                  />
-                )}
-              />
-              <Route
-                path="/movie-app/ComingSoon"
-                render={routeProps => (
-                  <BrowsePage
-                    {...routeProps}
-                    category={"Coming Soon"}
-                    uri={this.state.defaultApiPaths.comingSoonUri}
-                  />
-                )}
-              />
-            </div>
+          <div className="body">
+            <Route
+              exact
+              path="/movie-app/"
+              render={routeProps => (
+                <Home
+                  {...routeProps}
+                  defaultApiPaths={this.state.defaultApiPaths}
+                />
+              )}
+            />
+            <Route exact path="/movie-app/movie" component={MoviePage} />
+            <Route path="/movie-app/movie/:id" component={MoviePage} />
+            <Route
+              path="/movie-app/search/:searchTerm"
+              render={routeProps => (
+                <SearchPage {...routeProps} apiKey={this.state.apiKey} />
+              )}
+            />
+            <Route path="/movie-app/HireMe" component={HireMe} />
+            <Route
+              path="/movie-app/NewReleases"
+              render={routeProps => (
+                <BrowsePage
+                  {...routeProps}
+                  category={"New Releases"}
+                  uri={this.state.defaultApiPaths.newReleasesUri}
+                />
+              )}
+            />
+            <Route
+              path="/movie-app/TopRated"
+              render={routeProps => (
+                <BrowsePage
+                  {...routeProps}
+                  category={"Top Rated"}
+                  uri={this.state.defaultApiPaths.topRatedUri}
+                />
+              )}
+            />
+            <Route
+              path="/movie-app/ComingSoon"
+              render={routeProps => (
+                <BrowsePage
+                  {...routeProps}
+                  category={"Coming Soon"}
+                  uri={this.state.defaultApiPaths.comingSoonUri}
+                />
+              )}
+            />
           </div>
-        </BrowserRouter>
-      </CSSTransitionGroup>
+        </div>
+      </BrowserRouter>
     );
   }
 }
